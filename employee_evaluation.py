@@ -1,3 +1,8 @@
+def calculate_rating(tech, comm, prod):
+    avg_score = (tech + comm + prod) / 3
+    return avg_score, get_rating(avg_score)
+
+
 def get_rating(avg_score):
     if avg_score >= 90:
         return "Outstanding"
@@ -14,7 +19,6 @@ def get_rating(avg_score):
 
 
 if __name__ == "__main__":
-    # Fixed values for Jenkins (no input())
     employee_name = "Riya"
     employee_id = 101
     department = "IT"
@@ -23,16 +27,14 @@ if __name__ == "__main__":
     communication = 90
     productivity = 92
 
-    average_score = (technical_skills + communication + productivity) / 3
-    rating = get_rating(average_score)
+    average_score, rating = calculate_rating(
+        technical_skills, communication, productivity
+    )
 
     print("Employee Performance Evaluation")
     print("-------------------------------")
     print("Employee Name:", employee_name)
     print("Employee ID:", employee_id)
     print("Department:", department)
-    print("Technical Skills:", technical_skills)
-    print("Communication:", communication)
-    print("Productivity:", productivity)
     print("Average Score:", average_score)
     print("Rating:", rating)

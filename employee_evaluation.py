@@ -17,12 +17,12 @@ def calculate_rating(scores):
 
 # Default values for Jenkins / non-interactive runs
 DEFAULTS = {
-    "EMP_NAME": "John Doe",
-    "EMP_ID": "1234",
+    "EMP_NAME": "Riya Kamat",
+    "EMP_ID": "1001",
     "DEPARTMENT": "IT",
-    "TECH_SCORE": 85,
-    "COMM_SCORE": 90,
-    "PROD_SCORE": 80
+    "TECH_SCORE": 95,
+    "COMM_SCORE": 94,
+    "PROD_SCORE": 89
 }
 
 def get_value(key, prompt, cast=str):

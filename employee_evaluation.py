@@ -1,4 +1,14 @@
 import os
+import sys
+
+# -----------------------------
+# Step 0: Override os.environ with command-line arguments
+# Usage: python your_script.py EMP_NAME="John Doe" EMP_ID=1234 ...
+for arg in sys.argv[1:]:
+    if '=' in arg:
+        key, value = arg.split('=', 1)
+        os.environ[key] = value
+# -----------------------------
 
 def calculate_rating(scores):
     avg = sum(scores) / len(scores)

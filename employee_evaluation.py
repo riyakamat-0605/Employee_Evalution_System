@@ -13,8 +13,9 @@ def calculate_rating(avg_score):
         return "Unsatisfactory"
 
 
+# Jenkins / console execution only
 if __name__ == "__main__":
-    # Fixed values (Jenkins-safe)
+    # hardcoded values ONLY for display
     employee_name = "Riya"
     employee_id = 101
     department = "IT"

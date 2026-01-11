@@ -1,6 +1,5 @@
 import os
 
-
 def calculate_rating(scores):
     avg = sum(scores) / len(scores)
 
@@ -17,15 +16,18 @@ def calculate_rating(scores):
     else:
         return "Unsatisfactory"
 
-
 def get_value(var, prompt, cast=str):
-    # Jenkins & Docker path
+    # Use environment variable if it exists
     if var in os.environ:
         return cast(os.environ[var])
-
-    # Local VS Code path
-    return cast(input(prompt))
-
+    
+    # If running in an interactive terminal, ask the user
+    try:
+        return cast(input(prompt))
+    except EOFError:
+        # Non-interactive environment (like Jenkins), fallback to default
+        print(f"{prompt} (no input, using default)")
+        return cast("N/A" if cast == str else 0)
 
 def collect_inputs():
     name = get_value("EMP_NAME", "Enter employee name: ")
@@ -40,7 +42,6 @@ def collect_inputs():
 
     return name, emp_id, department, scores
 
-
 def display_result(name, emp_id, department, rating):
     print("\nEmployee Performance Evaluation")
     print("-" * 31)
@@ -48,7 +49,6 @@ def display_result(name, emp_id, department, rating):
     print(f"Employee ID : {emp_id}")
     print(f"Department  : {department}")
     print(f"Rating      : {rating}")
-
 
 if __name__ == "__main__":
     name, emp_id, department, scores = collect_inputs()

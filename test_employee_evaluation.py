@@ -1,25 +1,25 @@
-from employee_evaluation import calculate_rating
-
+from employee_evaluation import calculate_average, assign_rating
 
 def test_outstanding():
-    assert calculate_rating([95, 92, 94]) == "Outstanding"
-
+    avg = calculate_average(95, 95, 95)
+    assert assign_rating(avg) == "Outstanding"
 
 def test_excellent():
-    assert calculate_rating([85, 88, 82]) == "Excellent"
-
+    avg = calculate_average(85, 85, 85)
+    assert assign_rating(avg) == "Excellent"
 
 def test_very_good():
-    assert calculate_rating([70, 75, 78]) == "Very Good"
-
+    avg = calculate_average(70, 70, 70)
+    assert assign_rating(avg) == "Very Good"
 
 def test_good():
-    assert calculate_rating([55, 60, 58]) == "Good"
-
+    avg = calculate_average(55, 55, 55)
+    assert assign_rating(avg) == "Good"
 
 def test_needs_improvement():
-    assert calculate_rating([45, 42, 48]) == "Needs Improvement"
-
+    avg = calculate_average(45, 45, 45)
+    assert assign_rating(avg) == "Needs Improvement"
 
 def test_unsatisfactory():
-    assert calculate_rating([30, 35, 38]) == "Unsatisfactory"
+    avg = calculate_average(30, 30, 30)
+    assert assign_rating(avg) == "Unsatisfactory"

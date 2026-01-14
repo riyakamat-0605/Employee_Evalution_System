@@ -1,10 +1,7 @@
-FROM python:3.13-slim
-
-ENV PYTHONUNBUFFERED=1
+FROM python:3.12-slim
 
 WORKDIR /app
 
-COPY employee_evaluation.py .
-COPY test_employee_evaluation.py .
+COPY . .
 
 CMD ["python", "employee_evaluation.py"]
